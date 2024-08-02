@@ -1,0 +1,18 @@
+service: darserver
+frameworkVersion: '3'
+
+plugins:
+    - serverless-offline
+    - serverless-python-requirements
+
+provider:
+  name: aws
+  runtime: python3.9
+
+functions:
+  hello:
+    handler: hello/handler.main
+    events:
+      - httpApi:
+          path: /
+          method: get
